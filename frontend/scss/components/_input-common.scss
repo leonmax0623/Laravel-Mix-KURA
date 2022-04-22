@@ -1,0 +1,43 @@
+@use '../base/typography';
+@use '../base/size';
+@use '../themes/theme';
+
+.form-label {
+  @include typography.header-4;
+  margin-bottom: 15px;
+  display:inline-block;
+}
+
+@mixin input-border {
+  outline: none !important;
+  border: 1px solid rgba(171, 171, 171, 0.16);
+
+  &:focus, &:hover {
+    border-color: #B7B7B7;
+  }
+}
+
+@mixin input-container {
+  @include typography.text-3;
+  padding: 14px 20px;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 10px;
+  @include input-border;
+}
+
+.form-control {
+  @include input-container;
+}
+
+select.form-control {
+  appearance: none;
+  background: url('../../image/select-pointer.svg') no-repeat;
+  background-position: center right 7px;
+}
+
+.form-sublabel {
+  @include typography.text-3;
+  color: theme.$text-color;
+  margin-bottom: 16px;
+}

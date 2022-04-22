@@ -1,0 +1,16 @@
+@use '../themes/theme';
+@use '../base/size';
+
+.box {
+  background-color: theme.$surface-container-color;
+  border-radius: 28px;
+  max-width: 725px;
+
+  padding: size.$box-padding-size;
+  margin-bottom: 30px;
+
+  @include size.on-mobile {
+    padding: size.$box-padding-size-mobile;
+  }
+}
+

@@ -1,0 +1,36 @@
+@use '../base/typography';
+@use './input-common';
+@use '../themes/theme';
+
+.form-control-radio {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+
+  & + label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+    @include typography.text-3;
+    color: theme.$text-color;
+  }
+
+  & + label::before {
+    @include input-common.input-border;
+    content: '';
+    display: inline-block;
+    width: 1.2em;
+    height: 1.2em;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border-radius: 0.6em;
+    margin-right: 0.5em;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+  }
+
+  &:checked + label::before {
+    background-image: url("../../image/ellipse_100.svg");
+  }
+}

@@ -1,0 +1,7 @@
+@use '../themes/theme';
+
+$tag-bg: theme.$primary-color;
+$tag-hover: theme.$primary-color;
+$tag-text-color: theme.$primary-btn-color;
+
+@import "../../node_modules/@yaireo/tagify/src/tagify.scss";

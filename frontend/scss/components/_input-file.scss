@@ -1,0 +1,10 @@
+.form-control-file {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+
+  & + label {
+    display: inline-block;  
+  }
+}
+

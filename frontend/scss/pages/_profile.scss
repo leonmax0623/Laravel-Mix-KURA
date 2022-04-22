@@ -1,0 +1,46 @@
+@use '../themes/theme';
+@use '../base/typography';
+@use '../base/size';
+
+.choose-photo-card-container {
+  display: flex;
+
+  margin-top: 30px;
+
+  .choose-photo-group-btn-container {
+    margin-left: 40px;
+
+    @include size.on-mobile {
+      margin-left: 18px;
+    }
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+.person-form-container {
+  margin-top: 30px;
+}
+
+.full-person-information-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 20px;
+}
+
+.checkbox-visible-container {
+  margin-top: 14px;
+}
+
+#add-social-media-href-btn {
+  margin-top: 14px;
+}
+
+.person-max-price-radio-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
+  grid-gap: 20px;
+}

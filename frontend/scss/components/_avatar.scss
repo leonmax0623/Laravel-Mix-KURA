@@ -1,0 +1,37 @@
+@use '../themes/theme';
+@use '../base/size';
+
+.avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 26px;
+  background-color: theme.$surface-icon-color;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:after {
+    content: url('../../image/user-bottom-less.svg');
+  }
+}
+
+.avatar-large {
+  width: 156px;
+  height: 156px;
+  border-radius: 78px;
+
+  @include size.on-mobile {
+    width: 86px;
+    height: 86px;
+    border-radius: 43px;
+  }
+
+  &:after {
+    content: url('../../image/user-bottom-less-large.svg');
+
+    @include size.on-mobile {
+      content: url('../../image/user-bottom-less-middle.svg');
+    }
+  }
+}

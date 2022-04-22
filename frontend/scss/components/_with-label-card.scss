@@ -1,0 +1,30 @@
+@use '../themes/theme';
+@use '../base/size';
+@use '../base/typography';
+
+$icon-size: 48px;
+.with-label-card {
+  position: relative;
+
+  .with-label-card-description {
+    @include typography.text-2;
+    margin-top: 16px;
+  }
+
+  .with-label-card-icon {
+    position: absolute;
+    top: -8px;
+    height: $icon-size;
+    width: $icon-size;
+    border-radius: calc($icon-size / 2);
+    background-image: theme.$primary-gradient;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: -(size.$box-padding-size + calc($icon-size / 2));
+    
+    @include size.on-mobile {
+      left: -(size.$box-padding-size-mobile + calc($icon-size / 2));
+    }
+  }
+}

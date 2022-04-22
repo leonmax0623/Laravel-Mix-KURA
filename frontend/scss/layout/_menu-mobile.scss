@@ -1,0 +1,173 @@
+@use '../base/size';
+@use '../themes/theme';
+@use '../base/typography';
+
+.menu-mobile {
+    @include size.on-pc {
+        visibility: hidden;
+        display: none;
+    }
+}
+
+$width-menu: 300px;
+
+.nav {
+    display: block; // .nav in normalize.scss is flex -_-
+    width: $width-menu;
+    min-width: $width-menu;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    margin: 0;
+    right: -($width-menu + 60);
+    padding: 15px 30px;
+    -webkit-transition: right 0.3s;
+    -moz-transition: right 0.3s;
+    transition: right 0.3s;
+    background: theme.$surface-container-color;
+    z-index: 2000;
+}
+
+.nav-toggle {
+    position: absolute;
+    right: 380px;
+    height: 36px;
+    width: 36px;
+    border-radius: 18px;
+    background: theme.$surface-container-color;
+    color: theme.$primary-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2001;
+    -webkit-transition: color .25s ease-in-out;
+    -moz-transition: color .25s ease-in-out;
+    transition: color .25s ease-in-out;
+}
+
+.nav-toggle:after {
+    content: '\2630';
+    text-decoration: none;
+}
+
+[id='nav-toggle'] {
+    position: absolute;
+    display: none;
+}
+
+[id='nav-toggle']:checked ~ .nav > .nav-toggle {
+    left: auto;
+    right: 2px;
+    top: 1em;
+}
+
+[id='nav-toggle']:checked ~ .nav {
+    right: 0;
+    box-shadow:-4px 0px 20px 0px rgba(0,0,0, 0.5);
+    -moz-box-shadow:-4px 0px 20px 0px rgba(0,0,0, 0.5);
+    -webkit-box-shadow:-4px 0px 20px 0px rgba(0,0,0, 0.5);
+    overflow-y: auto;
+}
+
+[id='nav-toggle']:checked ~ main > article {
+    -webkit-transform: translateX(-320px);
+    -moz-transform: translateX(-320px);
+    transform: translateX(-320px);
+}
+
+[id='nav-toggle']:checked ~ .nav > .nav-toggle:after {
+    content: '\2715';
+    color: theme.$primary-color;
+}
+
+body {
+    -webkit-animation: bugfix infinite 1s;
+}
+
+@-webkit-keyframes bugfix {
+    to {
+      padding: 0;
+    }
+}
+
+@media screen and (min-width: 320px) {
+    html,
+    body {
+      margin: 0;
+      overflow-x: hidden;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    html,
+    body {
+      margin: 0;
+      overflow-x: hidden;
+    }
+    .nav {
+      width: 100%;
+      box-shadow: none
+    }
+}
+
+.nav > ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav > ul > li {
+    line-height: 2.5;
+    opacity: 0;
+    -webkit-transform: translateX(50%);
+    -moz-transform: translateX(50%);
+    -ms-transform: translateX(50%);
+    transform: translateX(50%);
+    -webkit-transition: opacity .5s .1s, -webkit-transform .5s .1s;
+    -moz-transition: opacity .5s .1s, -moz-transform .5s .1s;
+    -ms-transition: opacity .5s .1s, -ms-transform .5s .1s;
+    transition: opacity .5s .1s, transform .5s .1s;
+}
+
+[id='nav-toggle']:checked ~ .nav > ul > li {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+}
+
+.nav > ul > li {
+    -webkit-transition: opacity .5s .2s, -webkit-transform .5s .2s;
+    transition: opacity .5s .2s, transform .5s .2s;
+
+    > a {
+        display: flex;
+        align-items: center;
+        border-radius: 16px;
+        padding: 16px 0 16px 32px;
+        width: 100%;
+        text-decoration: none;
+        @include typography.header-3;
+    
+        > svg {
+          margin-right: 28px;
+        }
+        /* плавный переход */
+        -webkit-transition: color .5s ease, padding .5s ease;
+        -moz-transition: color .5s ease, padding .5s ease;
+        transition: color .5s ease, padding .5s ease;
+    }
+
+    > a:hover,
+    > a:focus {
+        background-color: theme.$surface-color;
+        color: theme.$primary-color;
+        > svg {
+        fill: theme.$primary-color;
+        }
+    }
+}

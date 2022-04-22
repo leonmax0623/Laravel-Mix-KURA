@@ -1,0 +1,47 @@
+@use '../themes/theme';
+@use '../base/size';
+
+.header-container {
+    @include size.on-pc {
+        height: 84px;
+        margin-top: 25px;
+        margin-left: 48px;
+
+        .name-page-container {
+            padding-bottom: 20px;
+            display: flex;
+            align-items: center;
+
+            img {
+                margin-right: 22px;
+            }
+        }
+    }
+    
+    @include size.on-mobile {
+        background-color: theme.$surface-color;
+        padding-left: 32px;
+
+        .name-page-container {
+            padding-top: 16px;
+            padding-bottom: 20px;
+            display: flex;
+            align-items: center;
+
+            img {
+                margin-right: 16px;
+            }
+        }
+
+        .logo-container > a {
+            background-color: theme.$surface-container-color;
+            padding: 16px;
+            border-radius: 12px;
+        }
+    }
+}
+
+.logo-container {
+    display: flex;
+    justify-content: space-between;
+}

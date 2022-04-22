@@ -1,0 +1,15 @@
+@use '../base/typography';
+@use '../base/size';
+@use '../themes/theme';
+
+@mixin label-container {
+  background-image: theme.$primary-gradient;
+  padding: 8px 12px;
+  border-radius: 8px;
+  @include typography.text-3;
+  color: white;
+}
+
+.label {
+  @include label-container;
+}

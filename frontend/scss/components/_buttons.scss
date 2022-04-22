@@ -1,0 +1,79 @@
+@use '../themes/theme';
+@use '../base/typography';
+@use '../base/size';
+
+.btn {
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-image: theme.$primary-gradient;
+  color: theme.$primary-btn-color;
+  box-shadow: 0px 0px 12px rgba(255, 255, 255, 0.53);
+  
+  &:hover {
+    background-image: theme.$primary-gradient-hover;
+  }
+
+  &:focus {
+    background-image: theme.$primary-gradient-hover;
+  }
+}
+
+@mixin btn-regular {
+  background-color: white;
+  color: theme.$primary-color;
+  border: 1px solid theme.$primary-color;
+}
+
+.btn-regular {
+ @include btn-regular;
+}
+
+.btn-regular-dot {
+  @include btn-regular;
+  border-style: dashed;
+}
+
+.btn-link {
+  border: none;
+  background: transparent;
+  color: theme.$primary-color;
+
+  border-radius: 0px;
+  border-bottom: 1px solid theme.$primary-color;
+  @include typography.text-4;
+
+  &:hover {
+    border-bottom: none;
+  }
+
+  > img {
+    margin-left: 8px;
+  }
+}
+
+.btn-l {
+  @include typography.text-4;
+  padding: 18px 32px;
+
+  @include size.on-mobile {
+    padding: 10px 20px;
+  }
+
+  > img {
+    margin-left: 8px;
+  }
+}
+
+.btn-xl {
+  @include typography.text-3;
+  padding: 26px 28px;
+
+  > img {
+    margin-left: 18px;
+  }
+}

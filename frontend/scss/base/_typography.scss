@@ -1,0 +1,116 @@
+@use '../themes/theme';
+@import url('http://fonts.cdnfonts.com/css/tt-norms');
+
+@mixin font-family {
+  font-family: 'TT Norms', sans-serif;
+}
+
+// TODO: вынести цвета в классы
+@mixin header-0 {
+  @include font-family;
+  font-size: 29px;
+  line-height: 34px;
+  font-weight: 700;
+  font-style: normal;
+  color: theme.$header-color;
+}
+
+@mixin header-0-primary {
+  @include header-0;
+  color: theme.$primary-color;
+}
+
+@mixin header-1 {
+  @include font-family;
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 400;
+  font-style: normal;
+  color: theme.$header-color;
+}
+
+@mixin header-2 {
+  @include font-family;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 400;
+  font-style: normal;
+  color: theme.$header-color;
+}
+
+@mixin header-3 {
+  @include font-family;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+  font-style: normal;
+  color: theme.$header-color;
+}
+
+@mixin header-4 {
+  @include font-family;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 400;
+  font-style: normal;
+  color: theme.$header-color;
+}
+
+@mixin header-4-primary {
+  @include header-4;
+  color: theme.$primary-color;
+}
+
+@mixin text-2 {
+  @include font-family;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 400;
+  font-style: normal;
+  color: theme.$text-color;
+}
+
+@mixin text-3 {
+  @include font-family;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight:lighter;
+  font-style: normal;
+}
+
+@mixin text-4 {
+  @include font-family;
+  font-size: 10px;
+  line-height: 12px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.display-0-primary {
+  @include header-0-primary;
+}
+
+.display-1 {
+  @include header-1;
+}
+
+.display-2 {
+  @include header-2;
+}
+
+.display-3 {
+  @include header-3;
+}
+
+.display-4-primary {
+  @include header-4-primary;
+}
+
+.text-2 {
+  @include text-2;
+}
+
+.text-3 {
+  @include text-3;
+  color: theme.$text-color;
+}

@@ -1,0 +1,21 @@
+@use '../themes/theme';
+@use '../base/size';
+
+.main-container {
+  width: 100%;
+  display: flex;
+
+  .content-container {
+    background-color: theme.$surface-color;
+    border-top-left-radius: 40px;
+    flex: 1;
+    padding-top: 52px;
+    padding-left: 165px;
+    padding-right: 70px;
+
+    @include size.on-mobile {
+      border-top-left-radius: 0px;
+      padding: 18px 30px;
+    }
+  }
+}

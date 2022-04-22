@@ -1,0 +1,17 @@
+$box-padding-size: 52px;
+$box-padding-size-mobile: 36px;
+
+$mobile-screen-size: 768px; // but md size from bootstrap equal 768px :)
+
+@mixin on-mobile {
+  @media screen and (max-width: ($mobile-screen-size - 1)) {
+    @content;
+  }
+}
+
+@mixin on-pc {
+  @media screen and (min-width: ($mobile-screen-size)) {
+    @content;
+  }
+}
+
